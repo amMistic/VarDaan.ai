@@ -14,7 +14,7 @@ import os
 # index_name = "vardaan-1o"
 
 UQID = datetime.now().strftime('%d%m%Y_%H%M%S')
-CHROMA = f'vecDatabase/chroma_{UQID}'
+CHROMA = f'vecDatabase/BlogDatabase/chroma_{UQID}'
 os.makedirs(CHROMA,exist_ok=True)
 
 class OnlineSRC:

@@ -31,7 +31,7 @@ class ProcessPDF:
         chunks = splitter.split_text(self.total_content)
         
         UQID = datetime.now().strftime('%d%m%Y_%H%M%S')
-        CHROMA = f'vecDatabase/chroma_{UQID}'
+        CHROMA = f'vecDatabase/PDFDatabase/chroma_{UQID}'
         os.makedirs(CHROMA,exist_ok=True)
         
         # perform embedding over chunks to converted into numerical data format and store that into vector store

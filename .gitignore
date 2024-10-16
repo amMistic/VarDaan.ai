@@ -2,3 +2,6 @@
 /vecDatabase/
 temp.py
 .env
+src\__pycache__
+src\Offline_src\__pycache__
+src\Online_src\__pycache__
