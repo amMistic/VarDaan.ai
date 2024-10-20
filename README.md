@@ -137,4 +137,6 @@ We welcome contributions from the community! To get started:
    git push origin feature/your-feature-name
    ```
 5. Create a pull request on GitHub.
-
+   ```bash
+   git pull origin feature/your-feature-name
+   ```
