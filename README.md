@@ -5,7 +5,7 @@
 ## Features
 
 - **Web Content as Chatbots**: Turn any web page, blog, or article into an interactive chatbot.
-- **YouTube Video Transcripts**: Input a YouTube video URL and ask questions based on the transcript.
+- **YouTube Video Chatbot**: Input a YouTube video URL and ask questions based on video content.
 - **PDF Support**: Upload PDF files and generate an AI chatbot to query the content.
 - **Conversational AI**: Powered by advanced natural language processing models that provide accurate answers based on the context.
 - **Simple User Interface**: Easy-to-use web interface that allows users to engage with different types of content seamlessly.
