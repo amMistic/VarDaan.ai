@@ -13,12 +13,11 @@ import re
 load_dotenv()
 
 class ProcessYoutube:
-    def __init__(self, URL:str):
+    def __init__(self, URL=None):
         self.URL = URL
-        self.content = None
+        self.total_content = None
         self.vector_store = None
         
-
     # Function to extract the id from URL
     def get_video_ID(self, URL:str):
         IDs= URL.split('=')
@@ -32,10 +31,13 @@ class ProcessYoutube:
 
         # Fetch the transcript
         transcript = YouTubeTranscriptApi.get_transcript(video_id)
-
+        
+        content = ''
         # Print the transcript
         for entry in transcript:
-            self.content += f"{entry['start']:.2f}s: {entry['text']}\n"
+            content += str(f"{entry['start']:.2f}s: {entry['text']}\n")
+        
+        self.total_content = content
         
         
     # convert into chunks
@@ -44,7 +46,7 @@ class ProcessYoutube:
             chunk_size = 1000,
             chunk_overlap = 200
         )
-        return splitter.split_text(self.content)
+        return splitter.split_text(self.total_content)
 
 
     # get the vector store
@@ -62,7 +64,7 @@ class ProcessYoutube:
         os.makedirs(CHROMA, exist_ok=True)
         
         vector_store = Chroma.from_texts(
-            self.content, embedding=embedding_function(), persist_directory=CHROMA
+            chunks, embedding=embedding_function(), persist_directory=CHROMA
         )
         
         self.vector_store = vector_store

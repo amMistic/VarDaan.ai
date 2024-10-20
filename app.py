@@ -73,10 +73,9 @@ def main():
             if 'vector_store' not in st.session_state or st.session_state.vector_store is None:
                 if st.button('Process'):
                     with st.spinner('Processing...'):
-                        st.session_state.vector_store = ProcessPDF().get_vector_store()
+                        st.session_state.vector_store = ProcessPDF().get_vector_store(Upload_file)
                     st.session_state.visible = True
 
-    chat_placeholder = st.empty()  # Create a placeholder for chat history
 
     # if conent is processed 
     if st.session_state.visible:
@@ -87,12 +86,13 @@ def main():
             st.session_state.chat_history.append(HumanMessage(content=user_query))
             st.session_state.chat_history.append(AIMessage(content=response))
             
-            # Update chat messages in the placeholder
-            with chat_placeholder:
-                for message in st.session_state.chat_history:
-                    if isinstance(message, AIMessage):
-                        st.chat_message("AI").write(message.content)
-                    elif isinstance(message, HumanMessage):
-                        st.chat_message("Human").write(message.content)
+            # Display chat messages
+            for message in st.session_state.chat_history:
+                if isinstance(message, AIMessage):
+                    with st.chat_message("AI"):
+                        st.write(message.content)
+                elif isinstance(message, HumanMessage):
+                    with st.chat_message("Human"):
+                        st.write(message.content)
 if __name__ == '__main__':
     main()

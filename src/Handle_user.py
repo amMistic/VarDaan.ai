@@ -1,7 +1,7 @@
 from langchain.chains.retrieval import create_retrieval_chain
 from langchain_huggingface import HuggingFaceEndpoint
 from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain.prompts import ChatMessagePromptTemplate
+from langchain.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 
 # load the environment variables
@@ -33,15 +33,15 @@ def RAG_conversational_chain(vector_store):
     
     
     #chat prompt
-    prompt = ChatMessagePromptTemplate(
-        [
-            ('system',system_prompt),
-            ('human',"{input}"),
-        ]
+    prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system", system_prompt),
+        ("human", "{input}"),
+    ]
     )
     
     # Combine the data sources and form coversational chain
-    QA_chain = create_stuff_documents_chain(llm=llm, prompt=system_prompt)
+    QA_chain = create_stuff_documents_chain(llm=llm, prompt=prompt)
     
     # return rag
     return create_retrieval_chain(retriever, QA_chain)

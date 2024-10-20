@@ -1,4 +1,4 @@
-from PyPDF2 import PdfFileReader
+from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores.chroma import Chroma
 from src.embedding_model import embedding_function
@@ -6,21 +6,21 @@ from datetime import datetime
 import os
 
 class ProcessPDF:
-    def __init__(self, uploaded_pdfs) -> None:
-        self.total_content = None
+    def __init__(self, uploaded_pdfs=None) -> None:
         self.vector_store = None
         self.upload_files = uploaded_pdfs
         
-    def extract_content(self):
-        pdfs = self.upload_files
-        for pdf in pdfs:
-            reader = PdfFileReader(pdf)
+    def extract_content(self, upload_files):
+        for pdf in upload_files:
+            reader = PdfReader(pdf)
+            content = ''
             for page in reader.pages:
-                self.total_content += page.extract_text()
+                content += page.extract_text()
+        return content
     
-    def get_vector_store(self):
+    def get_vector_store(self, upload_files):
         # extract the content from the documents
-        self.extract_content()
+        content = self.extract_content(upload_files)
         
         # split into chunks
         splitter = RecursiveCharacterTextSplitter(
@@ -28,7 +28,7 @@ class ProcessPDF:
             chunk_overlap = 200,
             separators='\n'
         )
-        chunks = splitter.split_text(self.total_content)
+        chunks = splitter.split_text(content)
         
         UQID = datetime.now().strftime('%d%m%Y_%H%M%S')
         CHROMA = f'vecDatabase/PDFDatabase/chroma_{UQID}'
