@@ -32,7 +32,7 @@ Make sure you have the following installed:
 1. **Clone the Repository**  
    Open your terminal and run the following command to clone the repository:
    ```bash
-   git clone https://github.com/yourusername/vardaan-ai.git
+   git clone https://github.com/amMistic/vardaan.ai.git
    ```
 
 2. **Navigate to the Project Directory**  
@@ -72,7 +72,7 @@ Make sure you have the following installed:
    - **For PDFs**: Upload the PDF document directly into the app.
 3. **Interactive Chat**: After processing the content, you can ask questions in the chat interface, and VarDaan.ai will respond based on the content provided.
 
-### Example Commands
+### Example Commands (Future Task)
 - **Blog/Article**: `vardaan.ai.http://example.com/blog-post`
 - **YouTube Video**: `vardaan.ai.youtube.com/watch?v=example-video`
 - **PDF**: Drag and drop a PDF document into the interface.
@@ -121,7 +121,7 @@ vardaan-ai/
 
 ## Contributing
 
-We welcome contributions from the community! To get started:
+I welcome contributions from the community! To get started:
 
 1. Fork the repository.
 2. Create a new branch:
