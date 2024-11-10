@@ -121,7 +121,7 @@ vardaan-ai/
 - **Chroma**: For vector storage and search capabilities
 - **Hugging Face Models**: Provides the embeddings for text representation
 - **YouTube Transcript API**: Used to fetch video transcripts
-- **PyPDF2**: For handling PDF text extraction
+- **pdfplumber**: For handling PDF text extraction
 
 ## Contributing
 
