@@ -95,6 +95,8 @@ vardaan-ai/
 
 ## How It Works
 
+![image](https://github.com/user-attachments/assets/f7a3ae66-278b-4c3d-882a-c36ff20bf976)
+
 1. **Extracting Content**:
    - **Web Content**: VarDaan.ai fetches and processes text from web pages or articles using web scraping methods.
    - **YouTube**: The app uses YouTube's transcript API to extract the spoken text from videos.
