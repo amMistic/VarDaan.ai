@@ -6,7 +6,6 @@ from src.embedding_model import embedding_function
 from dotenv import load_dotenv
 from datetime import datetime
 import os
-import re
 
 
 # load environmental variable

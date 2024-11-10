@@ -5,8 +5,9 @@ from src.embedding_model import embedding_function
 from dotenv import load_dotenv
 from datetime import datetime
 import os
+
 # # load all environmental variables
-# load_dotenv()
+load_dotenv()
 
 # # Initialize Pinecone
 # api_key = str(os.getenv('PINECONE_API_KEY'))

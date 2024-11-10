@@ -1,5 +1,5 @@
 from langchain.chains.retrieval import create_retrieval_chain
-from langchain_huggingface import HuggingFaceEndpoint
+from langchain_groq import ChatGroq 
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
@@ -11,13 +11,8 @@ load_dotenv()
 def RAG_conversational_chain(vector_store):
     
     # llm
-    llm = HuggingFaceEndpoint(
-        repo_id="mistralai/Mixtral-8x7B-Instruct-v0.1",
-        task="text-generation",
-        max_new_tokens=512,
-        do_sample=True,
-        temperature=0.7,
-        repetition_penalty=1.03,
+    llm = ChatGroq(
+        model_name = 'Llama3-8b-8192'
     )
     
     # retrieval

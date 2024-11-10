@@ -29,7 +29,7 @@ def main():
         st.session_state.visible = False
     if 'chat_history' not in st.session_state:
         st.session_state.chat_history = [
-        AIMessage(content='Hi! I am BlogGPT. Your Personal Blog Assistant. How can I assist you today?')
+        AIMessage(content='Hi! I am VarDaan. How can I assist you today?')
         ]
     
 
