@@ -1,5 +1,6 @@
-# VarDaan.ai 🤖
 ![image](https://github.com/user-attachments/assets/75f09437-23e2-48d5-a031-b408f3b22139)
+
+# VarDaan.ai 🤖
 
 **VarDaan.ai** is an AI-powered platform that transforms any web content—be it blogs, articles, YouTube videos, or PDF documents—into a chatbot that users can interact with. By providing a URL or uploading a file, you can ask natural language questions about the content and receive accurate, contextually relevant answers in real-time.
 
